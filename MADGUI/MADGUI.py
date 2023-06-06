@@ -37,6 +37,9 @@ from pathlib import Path
 import seaborn as sns
 from scipy.optimize import minimize
 
+user_id = st.get_option("server.serverId")
+st.write("User ID:", user_id)
+
 # Font for Japanese character in matplotlib and seaborn
 
 fpath = os.path.join(os.getcwd(), "./MADGUI/Noto_Sans_JP/NotoSansJP-Regular.otf")
