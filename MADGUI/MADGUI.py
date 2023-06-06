@@ -37,7 +37,12 @@ from pathlib import Path
 import seaborn as sns
 from scipy.optimize import minimize
 
-user_id = st.get_option("server.serverId")
+
+def get_user_id():
+    # Retrieve the user's IP address
+    user_ip = os.environ.get('REMOTE_ADDR')
+    return user_ip
+user_id = get_user_id()
 st.write("User ID:", user_id)
 
 # Font for Japanese character in matplotlib and seaborn
