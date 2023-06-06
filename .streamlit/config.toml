@@ -1,6 +1,6 @@
 [client]
-caching=false
-displayEnabled = false
+caching=true
+
 [server]
 serverPort=8501
 
