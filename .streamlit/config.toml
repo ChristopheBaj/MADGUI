@@ -1,3 +1,4 @@
 [client]
-
 caching=false
+[server]
+serverPort=8501
