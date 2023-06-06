@@ -38,12 +38,11 @@ import seaborn as sns
 from scipy.optimize import minimize
 
 
-def get_user_id():
-    # Retrieve the user's IP address
+if 'random' not in st.session_state:
     user_ip = np.random.randint(20000)
-    return user_ip
-user_id = get_user_id()
-st.write("User ID:", user_id)
+    st.session_state["random"]=user_ip
+
+st.write("User ID:", st.session_state["random"])
 
 # Font for Japanese character in matplotlib and seaborn
 
