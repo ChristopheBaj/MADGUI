@@ -60,8 +60,6 @@ bayesian = st.container()
 # Tool for activate the cursor on the bokeh graph to display the value
 TOOLTIPS = [("index", "$index"),("(x,y)", "(@x, @y)"),]
 
-# Function to covert data to csv
-@st.cache_data
 def convert_feat_lim(df):
 	return df.to_csv().encode('utf-8')
 
