@@ -2,6 +2,7 @@
 caching=true
 
 [server]
+address= localhost
 serverPort=8501
 
 [browser]
