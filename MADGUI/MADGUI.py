@@ -3,39 +3,39 @@
 # The recessary librairy are :
 
 import streamlit as st
-from streamlit_option_menu import option_menu
-import pandas as pd
+# from streamlit_option_menu import option_menu
+# import pandas as pd
 import numpy as np
-import glob as gb
-from bokeh.plotting import figure, show
-from bokeh.models import ColumnDataSource, Whisker
+# import glob as gb
+# from bokeh.plotting import figure, show
+# from bokeh.models import ColumnDataSource, Whisker
 
-from re import search
+# from re import search
 
-import sklearn as skl
-from sklearn.model_selection import cross_val_score, LeaveOneOut, cross_val_predict, cross_validate, KFold
-from sklearn.linear_model import ElasticNet
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_squared_error, mean_absolute_error, make_scorer
+# import sklearn as skl
+# from sklearn.model_selection import cross_val_score, LeaveOneOut, cross_val_predict, cross_validate, KFold
+# from sklearn.linear_model import ElasticNet
+# from sklearn.ensemble import RandomForestRegressor
+# from sklearn.metrics import mean_squared_error, mean_absolute_error, make_scorer
 
-from sklearn.preprocessing import StandardScaler
-from sklearn.pipeline import make_pipeline
+# from sklearn.preprocessing import StandardScaler
+# from sklearn.pipeline import make_pipeline
 
-from xgboost import XGBRegressor
+# from xgboost import XGBRegressor
 
-import GPyOpt as gpopt
+# import GPyOpt as gpopt
 
-import matplotlib.pyplot as plt
-import matplotlib as mpl
-from matplotlib import rcParams
-from matplotlib import font_manager as fm
+# import matplotlib.pyplot as plt
+# import matplotlib as mpl
+# from matplotlib import rcParams
+# from matplotlib import font_manager as fm
 
-import os
-import io
-from pathlib import Path
+# import os
+# import io
+# from pathlib import Path
 
-import seaborn as sns
-from scipy.optimize import minimize
+# import seaborn as sns
+# from scipy.optimize import minimize
 
 
 if 'random' not in st.session_state:
@@ -43,6 +43,9 @@ if 'random' not in st.session_state:
     st.session_state["random"]=user_ip
 
 st.write("User ID:", st.session_state["random"])
+reset_button=st.button("Reset session_state")
+if reset_button:
+	st.session_state={}
 
 # # Font for Japanese character in matplotlib and seaborn
 
