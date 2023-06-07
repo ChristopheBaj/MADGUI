@@ -5,7 +5,22 @@
 import streamlit as st
 # from streamlit_option_menu import option_menu
 # import pandas as pd
-import numpy as np
+# import numpy as np
+
+import streamlit as st
+from streamlit.report_thread import get_report_ctx
+
+
+def _get_session():
+    import streamlit.report_thread as ReportThread
+    from streamlit.server.server import Server
+    session_id = get_report_ctx().session_id
+    session_info = Server.get_current()._get_session_info(session_id)
+    if session_info is None:
+        raise RuntimeError("Couldn't get your Streamlit Session object.")
+    return session_info.session
+user_session = _get_session()
+st.write(user_session)
 
 if 'proof' not in st.session_state:
 	st.session_state["proof"]="This text is the initialization of st.session_state['proof']"
