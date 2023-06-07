@@ -9,7 +9,8 @@ import streamlit as st
 
 try:
     from streamlit.script_run_context import get_script_run_ctx
-from streamlit.server.server import Server     
+
+from streamlit.web.server.server import Server     
 def get_session_id() -> str:
     ctx = get_script_run_ctx()
     if ctx is None:
