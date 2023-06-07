@@ -7,10 +7,9 @@ import streamlit as st
 # import pandas as pd
 # import numpy as np
 
-from streamlit.scriptrunner import get_script_run_ctx
-
+from streamlit.scriptrunner import get_script_run_ctx as get_report_ctx
 def get_session_id() -> str:
-    ctx = get_script_run_ctx()
+    ctx = get_report_ctx()
     if ctx is None:
         raise Exception("Failed to get the thread context")
 
