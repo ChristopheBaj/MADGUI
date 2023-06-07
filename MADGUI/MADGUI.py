@@ -7,20 +7,20 @@ import streamlit as st
 # import pandas as pd
 # import numpy as np
 
-import streamlit as st
-from streamlit.report_thread import get_report_ctx
-
-
-def _get_session():
-    import streamlit.report_thread as ReportThread
-    from streamlit.server.server import Server
-    session_id = get_report_ctx().session_id
-    session_info = Server.get_current()._get_session_info(session_id)
-    if session_info is None:
-        raise RuntimeError("Couldn't get your Streamlit Session object.")
-    return session_info.session
-user_session = _get_session()
-st.write(user_session)
+try:
+    from streamlit.script_run_context import get_script_run_ctx
+except ModuleNotFoundError:
+    # streamlit < 1.4
+    from streamlit.report_thread import (  # type: ignore
+        get_report_ctx as get_script_run_ctx,
+    )          
+from streamlit.server.server import Server    
+# Ref: https://gist.github.com/tvst/036da038ab3e999a64497f42de966a92
+          
+def get_session_id() -> str:
+    ctx = get_script_run_ctx()
+    if ctx is None:
+        raise Exception("Failed to get the thread context")
 
 if 'proof' not in st.session_state:
 	st.session_state["proof"]="This text is the initialization of st.session_state['proof']"
