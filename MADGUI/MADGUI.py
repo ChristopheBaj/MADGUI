@@ -9,11 +9,12 @@ import streamlit as st
 
 try:
     from streamlit.script_run_context import get_script_run_ctx
-          
-def get_session_id():
+from streamlit.server.server import Server     
+def get_session_id() -> str:
     ctx = get_script_run_ctx()
     if ctx is None:
-        raise Exception("Failed to get the thread context")
+        raise Exception("Failed to get the thread context")    
+    return ctx.session_id
 
 if 'proof' not in st.session_state:
 	st.session_state["proof"]="This text is the initialization of st.session_state['proof']"
