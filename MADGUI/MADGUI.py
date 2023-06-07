@@ -6,6 +6,21 @@ import streamlit as st
 # from streamlit_option_menu import option_menu
 # import pandas as pd
 import numpy as np
+
+if 'proof' not in st.session_state:
+	st.session_state["proof"]="This text is the initialization of st.session_state['proof']"
+	st.write(st.session_state["proof"])
+	st.stop()
+else:
+	st.session_state["proof"]="If you see that on a new page there is a problem"
+	st.write(st.session_state["proof"])
+reset_button=st.button("Reset session_state")
+if reset_button:
+	st.session_state={}
+	st.experimental_rerun()
+
+
+
 # import glob as gb
 # from bokeh.plotting import figure, show
 # from bokeh.models import ColumnDataSource, Whisker
@@ -36,17 +51,6 @@ import numpy as np
 
 # import seaborn as sns
 # from scipy.optimize import minimize
-
-
-if 'random' not in st.session_state:
-    user_ip = np.random.randint(20000)
-    st.session_state["random"]=user_ip
-
-st.write("User ID:", st.session_state["random"])
-reset_button=st.button("Reset session_state")
-if reset_button:
-	st.session_state={}
-	st.experimental_rerun()
 
 # # Font for Japanese character in matplotlib and seaborn
 
