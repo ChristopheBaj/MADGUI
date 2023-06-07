@@ -10,7 +10,7 @@ import streamlit as st
 try:
     from streamlit.script_run_context import get_script_run_ctx
           
-def get_session_id() -> str:
+def get_session_id():
     ctx = get_script_run_ctx()
     if ctx is None:
         raise Exception("Failed to get the thread context")
