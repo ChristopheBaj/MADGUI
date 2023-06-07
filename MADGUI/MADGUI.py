@@ -9,10 +9,6 @@ import streamlit as st
 
 try:
     from streamlit.script_run_context import get_script_run_ctx
-except ModuleNotFoundError:
-    from streamlit.report_thread import get_report_ctx as get_script_run_ctx       
-from streamlit.server.server import Server    
-# Ref: https://gist.github.com/tvst/036da038ab3e999a64497f42de966a92
           
 def get_session_id() -> str:
     ctx = get_script_run_ctx()
