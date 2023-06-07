@@ -46,6 +46,7 @@ st.write("User ID:", st.session_state["random"])
 reset_button=st.button("Reset session_state")
 if reset_button:
 	st.session_state={}
+	st.experimental_rerun()
 
 # # Font for Japanese character in matplotlib and seaborn
 
