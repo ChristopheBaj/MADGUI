@@ -418,14 +418,12 @@ elif choice == 'Prediction':
 		    
 		    n_features = df_param.shape[1]
 		    for ifeat in range(n_features):
-			p_dep_array_tmp = None
-			for iest in range(len(estimator)):
-			    if iest == 0:
-				p_dep_array_tmp = skl.inspection.partial_dependence(estimator[iest], features=[ifeat], X=df_param.loc[:,:])['average']
-			    else:
-				p_dep_array_tmp = np.vstack((p_dep_array_tmp, 
-							     skl.inspection.partial_dependence(estimator[iest], features=[ifeat], X=df_param.loc[:,:])['average']))
-			
+			    p_dep_array_tmp = None
+			    for iest in range(len(estimator)):
+				    if iest == 0:
+					    p_dep_array_tmp = skl.inspection.partial_dependence(estimator[iest], features=[ifeat], X=df_param.loc[:,:])['average']
+				    else:
+					    p_dep_array_tmp = np.vstack((p_dep_array_tmp,skl.inspection.partial_dependence(estimator[iest], features=[ifeat], X=df_param.loc[:,:])['average']))
 			p_dep_values.append(skl.inspection.partial_dependence(estimator[iest], features=[ifeat], X=df_param.loc[:,:])['grid_values'][0])
 			p_dep_list_min.append(np.min(p_dep_array_tmp, axis=0).flatten())
 			p_dep_list_max.append(np.max(p_dep_array_tmp, axis=0).flatten())
