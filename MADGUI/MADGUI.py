@@ -424,11 +424,11 @@ elif choice == 'Prediction':
 					    p_dep_array_tmp = skl.inspection.partial_dependence(estimator[iest], features=[ifeat], X=df_param.loc[:,:])['average']
 				    else:
 					    p_dep_array_tmp = np.vstack((p_dep_array_tmp,skl.inspection.partial_dependence(estimator[iest], features=[ifeat], X=df_param.loc[:,:])['average']))
-			p_dep_values.append(skl.inspection.partial_dependence(estimator[iest], features=[ifeat], X=df_param.loc[:,:])['grid_values'][0])
-			p_dep_list_min.append(np.min(p_dep_array_tmp, axis=0).flatten())
-			p_dep_list_max.append(np.max(p_dep_array_tmp, axis=0).flatten())
-			p_dep_list_mean.append(np.mean(p_dep_array_tmp, axis=0).flatten())
-			p_dep_list_median.append(np.median(p_dep_array_tmp, axis=0).flatten())
+			    p_dep_values.append(skl.inspection.partial_dependence(estimator[iest], features=[ifeat], X=df_param.loc[:,:])['grid_values'][0])
+			    p_dep_list_min.append(np.min(p_dep_array_tmp, axis=0).flatten())
+			    p_dep_list_max.append(np.max(p_dep_array_tmp, axis=0).flatten())
+			    p_dep_list_mean.append(np.mean(p_dep_array_tmp, axis=0).flatten())
+			    p_dep_list_median.append(np.median(p_dep_array_tmp, axis=0).flatten())
 		    #scale all the graph to the same ylimit
 		    if scale:
 			min_value = min(p_dep_list_min[0])
