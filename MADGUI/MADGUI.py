@@ -32,6 +32,8 @@ import matplotlib as mpl
 from matplotlib import rcParams
 from matplotlib import font_manager as fm
 
+import matplotlib.gridspec as gridspec
+
 import os
 import io
 from pathlib import Path
