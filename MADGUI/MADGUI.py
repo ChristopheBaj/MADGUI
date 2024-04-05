@@ -434,11 +434,11 @@ elif choice == 'Prediction':
 			    min_value = min(p_dep_list_min[0])
 			    for i in range(len(p_dep_list_min)):
 			        if min_value > min(p_dep_list_min[i]):
-				    min_value = min(p_dep_list_min[i])
+					min_value = min(p_dep_list_min[i])
 			    max_value = max(p_dep_list_max[0])
 			    for i in range(len(p_dep_list_max)):
 			        if max_value < max(p_dep_list_max[i]):
-				    max_value = max(p_dep_list_max[i])
+					max_value = max(p_dep_list_max[i])
 				
 		    plt.ioff()        
 		    fig = plt.figure(figsize=(12, 12),layout='tight')
