@@ -5,7 +5,7 @@ GPy
 GPyOpt==1.2.6
 matplotlib==3.6.3
 matplotlib-inline==0.1.6
-numpy==1.21.0
+numpy==1.19.5
 openpyxl==3.0.10
 pandas==1.4.2
 scikit-learn==1.2.1
